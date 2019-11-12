@@ -1,0 +1,45 @@
+@import '../../../../../../hav-components/src/styles/hav-colors';
+
+:host {
+  display: flex;
+  flex-direction: column;
+
+  hav-button {
+    margin-bottom: 1rem;
+  }
+
+  hav-accordion {
+    hav-accordion-panel-content {
+      .panel-1-content {
+        background-color: @hav-lightblue;
+        display: flex;
+        padding: 0.5rem 2rem;
+      }
+
+      .panel-2-content {
+        background-color: @hav-darkblue;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        height: 9rem;
+        padding-left: 2rem;
+        padding-top: 1rem;
+
+        .icons {
+          align-items: center;
+          display: flex;
+          flex: 1 1 0%;
+          padding-left: 1rem;
+
+          fa-icon {
+            font-size: 3em;
+
+            &:not(:first-child) {
+              padding-left: 3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

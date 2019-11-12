@@ -1,0 +1,55 @@
+<label [class.disabled]="disabled" [attr.for]="label">
+  <span *ngIf="!hideLabel">
+    {{ label }}
+  </span>
+  <span class="textarea-helper-text" *ngIf="helperText !== undefined">{{
+    helperText
+  }}</span>
+</label>
+<div
+  class="textarea-input-container"
+  havFocusOutline
+  [class.required]="required"
+  [ngClass]="readOnly ? 'read-only' : disabled ? 'disabled' : ''"
+>
+  <textarea
+    [id]="label"
+    [readOnly]="readOnly"
+    [disabled]="disabled"
+    (blur)="onTouched()"
+    [attr.aria-disabled]="disabled"
+    [attr.aria-label]="label"
+    (input)="!disabled && onInput($event.target.value)"
+    [name]="label"
+    [attr.aria-required]="required"
+    [attr.aria-invalid]="control && control!.invalid"
+    attr.aria-describedby="{{ control && !control.valid && label! + '_error' }}"
+    [required]="required"
+    [rows]="rows"
+    >{{ value || (control && control!.value) || '' }}</textarea
+  >
+</div>
+<div class="textarea-validation-info-container">
+  <span
+    id="{{ label }}_error"
+    class="textarea-error-container"
+    *ngIf="
+      control &&
+      (required ? control.touched : control.touched && control.dirty) &&
+      !control.valid
+    "
+  >
+    <span *ngIf="validationErrorMessage && !customValidationErrorMessage">
+      {{ validationErrorMessage }}
+    </span>
+    <span *ngIf="customValidationErrorMessage">
+      {{ customValidationErrorMessage }}
+    </span>
+  </span>
+  <span
+    *ngIf="maxLength !== undefined"
+    class="textarea-characters-left"
+    [class.disabled]="disabled"
+    >{{ nbrOfCharacters }} / {{ maxLength }}</span
+  >
+</div>

@@ -1,0 +1,50 @@
+:host {
+  margin-bottom: 2rem;
+
+  app-documentation {
+    margin-top: 2rem;
+    padding: 0 2rem;
+
+    app-documentation-example {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+
+      .button-clicked-text {
+        display: flex;
+        font-weight: 500;
+        font-style: italic;
+        background-color: palevioletred;
+        border-radius: 3px;
+        width: 16rem;
+        padding: 1rem;
+      }
+
+      .button-types {
+        display: flex;
+        flex-direction: column;
+
+        .primary-type,
+        .secondary-type {
+          display: flex;
+          flex: 1;
+          margin-bottom: 1rem;
+
+          * {
+            margin-right: 2rem;
+          }
+        }
+      }
+
+      .button-sizes {
+        align-items: center;
+        display: flex;
+        margin-bottom: 1rem;
+
+        hav-button:not(last-child) {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<svg
+  [attr.height]="2 * (spinnerRadius + satelliteRadius)"
+  [attr.width]="2 * (spinnerRadius + satelliteRadius)"
+  [style.animation-play-state]="pauseAnimation ? 'paused' : 'running'"
+>
+  <circle
+    *ngFor="let circle of satelliteCircles; index as i"
+    [attr.cx]="circle.position.x + spinnerRadius + satelliteRadius"
+    [attr.cy]="circle.position.y + spinnerRadius + satelliteRadius"
+    [attr.r]="satelliteRadius"
+    fill="#154a91"
+    [style.opacity]="circle.opacity"
+  ></circle>
+</svg>

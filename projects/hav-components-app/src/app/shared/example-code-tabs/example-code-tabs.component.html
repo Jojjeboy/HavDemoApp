@@ -1,0 +1,14 @@
+<div class="tabs">
+  <a
+    *ngFor="let tab of tabs"
+    (click)="onTabClick(tab)"
+    [class.active]="tab.type === activeTab.type"
+  >
+    <span>
+      {{ tab.type }}
+    </span>
+  </a>
+</div>
+<div class="markdown-wrapper" *ngIf="activeTab">
+  <markdown [src]="activeTab.markdownSourcePath"></markdown>
+</div>

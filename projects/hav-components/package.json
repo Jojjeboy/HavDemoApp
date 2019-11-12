@@ -1,0 +1,19 @@
+{
+  "name": "hav-components",
+  "version": "0.0.11",
+  "scripts": {
+    "build": "..\\..\\node_modules\\.bin\\tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cp --parents schematics/*/schema.json ../../dist/hav-components/",
+    "copy:files": "cp -r --parents -p schematics/*/files/** ../../dist/hav-components/",
+    "copy:collection": "cp schematics/collection.json ../../dist/hav-components/schematics/collection.json",
+    "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
+  },
+  "peerDependencies": {
+    "@angular/common": "^8.2.6",
+    "@angular/core": "^8.2.6",
+    "@fortawesome/angular-fontawesome": "0.3.0 - 0.6",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1"
+  },
+  "schematics": "./schematics/collection.json"
+}

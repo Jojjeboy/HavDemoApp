@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ng-add": {
+      "description": "Add hav-components to the project.",
+      "factory": "./ng-add/index#ngAdd",
+      "schema": "./ng-add/schema.json"
+    },
+    "ng-add-setup-target-project": {
+      "description": "Sets up the target project after the library has been installed.",
+      "factory": "./ng-add/setup-target-project#ngSetupTargetProject",
+      "private": true
+    }
+  }
+}

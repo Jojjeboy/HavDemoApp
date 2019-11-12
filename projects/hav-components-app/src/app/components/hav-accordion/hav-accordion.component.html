@@ -1,0 +1,35 @@
+<markdown>## Accordion</markdown>
+<markdown
+  [data]="moduleImportData"
+  [ngStyle]="{ marginTop: '1rem', display: 'block', padding: '0 2rem' }"
+></markdown>
+<app-documentation
+  [api]="accordionApi"
+  alternativeTitle="AccordionComponent"
+  [showModuleImport]="false"
+>
+</app-documentation>
+<app-documentation
+  [api]="accordionPanelApi"
+  alternativeTitle="AccordionPanelComponent"
+  [showModuleImport]="false"
+></app-documentation>
+<app-documentation
+  [api]="accordionPanelHeaderApi"
+  alternativeTitle="AccordionPanelHeaderComponent"
+  [showModuleImport]="false"
+></app-documentation>
+<app-documentation
+  [api]="accordionPanelContentApi"
+  alternativeTitle="AccordionPanelContentComponent"
+  [showModuleImport]="false"
+></app-documentation>
+<app-documentation>
+  <app-documentation-example>
+    <app-accordion-example></app-accordion-example>
+  </app-documentation-example>
+  <app-example-code-tabs
+    [tabs]="codeTabs"
+    [activeTab]="codeTabs[2]"
+  ></app-example-code-tabs>
+</app-documentation>

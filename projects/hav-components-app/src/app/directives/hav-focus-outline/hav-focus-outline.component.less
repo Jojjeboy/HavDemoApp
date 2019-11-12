@@ -1,0 +1,46 @@
+:host {
+  margin-bottom: 2rem;
+
+  .focus-outline-description {
+    padding: 0 2rem;
+
+    p {
+      font-size: 0.9em;
+      text-overflow: ellipsis;
+      max-width: 800px;
+    }
+  }
+
+  app-documentation {
+    margin-top: 1.5rem;
+    padding: 0 2rem;
+
+    app-documentation-example {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+
+      p {
+        font-style: italic;
+      }
+
+      .focus-outline-examples {
+        display: flex;
+
+        > * {
+          align-items: center;
+          display: flex;
+          background-color: #c8effe;
+          border: 2px solid black;
+          flex: 1;
+          height: 4rem;
+          justify-content: center;
+
+          &:not(:last-child) {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+}

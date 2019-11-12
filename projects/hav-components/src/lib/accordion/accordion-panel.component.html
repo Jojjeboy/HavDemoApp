@@ -1,0 +1,51 @@
+<div
+  class="accordion-panel-header"
+  [class.toggle-trigger]="!iconAsToggleTrigger"
+  (click)="iconAsToggleTrigger ? undefined : onClick($event)"
+  (keydown.space)="iconAsToggleTrigger ? undefined : onKeyDown($event)"
+  (keyup.space)="iconAsToggleTrigger ? undefined : onKeyUp($event)"
+  (keyup.enter)="iconAsToggleTrigger ? undefined : onKeyUp($event)"
+  havFocusOutline
+  [outline]="iconAsToggleTrigger ? 'none' : 'solid 2px #eaa00e'"
+  [addFocusOutlineOnTabKeyboardEvent]="true"
+  [outlineOffsetInsideElement]="true"
+  [tabIndex]="iconAsToggleTrigger ? -1 : 0"
+  [attr.role]="iconAsToggleTrigger ? undefined : 'button'"
+  [id]="headerId"
+  [attr.aria-controls]="iconAsToggleTrigger ? undefined : id"
+>
+  <ng-content select="hav-accordion-panel-header"></ng-content>
+  <ng-container [ngSwitch]="iconAsToggleTrigger">
+    <button
+      *ngSwitchCase="true"
+      (click)="onClick($event)"
+      (keydown.enter)="onKeyDown($event)"
+      (keyup.enter)="onKeyUp($event)"
+      havFocusOutline
+      [addFocusOutlineOnTabKeyboardEvent]="true"
+      [outlineOffsetInsideElement]="true"
+      [attr.aria-label]="isExpanded ? 'Minimera panel' : 'Expandera panel'"
+      [attr.aria-controls]="id"
+    >
+      <ng-container *ngTemplateOutlet="caretIcon"></ng-container>
+    </button>
+    <ng-container *ngSwitchDefault>
+      <ng-container *ngTemplateOutlet="caretIcon"></ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+<div
+  [@expandCollapse]="isExpanded ? 'expanded' : 'collapsed'"
+  attr.role="region"
+  [id]="id"
+  [attr.aria-labelledby]="headerId"
+>
+  <ng-content select="hav-accordion-panel-content"></ng-content>
+</div>
+
+<ng-template #caretIcon>
+  <fa-icon
+    [icon]="expansionToggleButton"
+    [@flipChevron]="isExpanded ? 'expanded' : 'collapsed'"
+  ></fa-icon>
+</ng-template>

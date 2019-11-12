@@ -1,0 +1,78 @@
+@import '../../../styles/constants';
+
+:host {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+
+  .menu-item-group-accordion-header {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+
+    a {
+      flex: 1;
+      height: 100%;
+      text-transform: uppercase;
+    }
+
+    &.active {
+      a,
+      fa-icon {
+        color: #0071a5;
+      }
+    }
+
+    &:hover {
+      background-color: @hover-grey;
+    }
+
+    .icon-container {
+      justify-content: center;
+      display: flex;
+      height: 3rem;
+      width: 3rem;
+
+      &:hover {
+        background-color: @hover-grey;
+        cursor: pointer;
+      }
+
+      fa-icon {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &.expanded {
+      fa-icon {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  a {
+    align-items: center;
+    color: black;
+    display: flex;
+    font-size: 0.9rem;
+    height: 2rem;
+    padding: 0 1rem;
+    text-decoration: none;
+  }
+
+  .sub-menu-items {
+    a {
+      padding-left: 1.5rem;
+
+      &:hover {
+        background-color: @hover-grey;
+        cursor: pointer;
+      }
+
+      &.active {
+        color: #0071a5;
+      }
+    }
+  }
+}

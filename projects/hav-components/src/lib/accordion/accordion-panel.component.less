@@ -1,0 +1,64 @@
+@import '../../styles/hav-colors';
+
+:host {
+  background-color: @hav-map-white;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+
+  .accordion-panel-header {
+    align-items: center;
+    border-bottom: 1px solid @hav-grey;
+    display: flex;
+    min-height: 46px;
+    outline: none;
+    transition: 100ms background-color cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.toggle-trigger {
+      fa-icon {
+        font-size: 16px;
+        padding-right: 16px;
+      }
+
+      &:hover {
+        background-color: @hover-grey;
+        cursor: pointer;
+      }
+    }
+
+    &::ng-deep hav-accordion-panel-header {
+      flex: 1 1 0%;
+      padding-left: 16px;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      display: flex;
+      height: 48px;
+      justify-content: center;
+      outline: none;
+      padding: 0;
+      transition: color, background-color 100ms cubic-bezier(0.4, 0, 0.2, 1);
+      width: 48px;
+
+      fa-icon {
+        font-size: 16px;
+      }
+
+      &:hover {
+        background-color: @hover-grey;
+        color: lighten(black, 15);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.expanded {
+    .accordion-panel-header {
+      fa-icon {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+}

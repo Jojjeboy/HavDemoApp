@@ -1,0 +1,38 @@
+<markdown>## Buttons</markdown>
+<app-documentation [api]="buttonApi">
+  <app-documentation-example>
+    <span class="button-clicked-text" *ngIf="buttonClickedText">{{
+      buttonClickedText
+    }}</span>
+    <div class="button-types">
+      <p>Primary button</p>
+      <div class="primary-type">
+        <hav-button (click)="onClick('Primary button was clicked')">
+          Enabled
+        </hav-button>
+        <hav-button [disabled]="true">Disabled</hav-button>
+      </div>
+      <p>Secondary button</p>
+      <div class="secondary-type">
+        <hav-button
+          buttonType="secondary"
+          (click)="onClick('Secondary button was clicked')"
+          >Enabled</hav-button
+        >
+        <hav-button buttonType="secondary" [disabled]="true">
+          Disabled
+        </hav-button>
+      </div>
+    </div>
+    <p>Button sizes</p>
+    <div class="button-sizes">
+      <hav-button buttonSize="small">Small</hav-button>
+      <hav-button>Medium</hav-button>
+      <hav-button buttonSize="large">Large</hav-button>
+    </div>
+  </app-documentation-example>
+  <app-example-code-tabs
+    [tabs]="codeTabs"
+    [activeTab]="codeTabs[2]"
+  ></app-example-code-tabs>
+</app-documentation>

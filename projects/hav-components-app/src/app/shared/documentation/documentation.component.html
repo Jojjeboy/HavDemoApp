@@ -1,0 +1,53 @@
+<div class="api-wrapper" *ngIf="api">
+  <h3 *ngIf="alternativeTitle">{{ alternativeTitle }}</h3>
+  <div class="api-card-content" [class.no-properties]="hasNoProperties">
+    <markdown *ngIf="showModuleImport" [data]="moduleData"></markdown>
+    <div class="selector" *ngIf="showSelector">
+      selector:
+      <p>{{ api.selector }}</p>
+    </div>
+    <hav-accordion>
+      <hav-accordion-panel *ngIf="api.inputs.length > 0" [isExpanded]="true">
+        <hav-accordion-panel-header>
+          <h4>Inputs</h4>
+        </hav-accordion-panel-header>
+        <hav-accordion-panel-content>
+          <app-table
+            [tableRows]="inputTableRows"
+            [headerNames]="headerNames"
+          ></app-table>
+        </hav-accordion-panel-content>
+      </hav-accordion-panel>
+      <hav-accordion-panel *ngIf="api.outputs.length > 0" [isExpanded]="true">
+        <hav-accordion-panel-header>
+          <h4>Outputs</h4>
+        </hav-accordion-panel-header>
+        <hav-accordion-panel-content>
+          <app-table
+            [tableRows]="outputTableRows"
+            [headerNames]="headerNames"
+          ></app-table>
+        </hav-accordion-panel-content>
+      </hav-accordion-panel>
+      <hav-accordion-panel *ngIf="api.methods.length > 0" [isExpanded]="true">
+        <hav-accordion-panel-header>
+          <h4>Methods</h4>
+        </hav-accordion-panel-header>
+        <hav-accordion-panel-content>
+          <app-table
+            [tableRows]="methodTableRows"
+            [headerNames]="headerNames"
+          ></app-table>
+        </hav-accordion-panel-content>
+      </hav-accordion-panel>
+    </hav-accordion>
+  </div>
+</div>
+<div class="example-section" *ngIf="showExample">
+  <h3>Examples</h3>
+  <ng-content select="app-documentation-example"></ng-content>
+</div>
+<div class="code-section" *ngIf="showCode">
+  <h3>Code</h3>
+  <ng-content select="app-example-code-tabs"></ng-content>
+</div>

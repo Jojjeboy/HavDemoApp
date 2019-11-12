@@ -1,0 +1,53 @@
+:host {
+  width: 100%;
+  table {
+    border-collapse: collapse;
+
+    thead {
+      th {
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.875rem;
+        padding-bottom: 1rem;
+        padding-right: 2rem;
+        padding-top: 1rem;
+        text-align: left;
+        white-space: nowrap;
+      }
+    }
+
+    tbody {
+      tr {
+        font-size: 0.875rem;
+        td {
+          padding: 0.5rem 1rem 0.5rem 0;
+          vertical-align: top;
+        }
+
+        td.purple {
+          color: darken(#b77daa, 10);
+        }
+
+        td.green {
+          color: darken(#7f9a44, 10);
+        }
+        td.grey:not(.required) {
+          span {
+            color: darken(#767676, 40);
+            background-color: lighten(#767676, 45);
+            padding: 0.125rem 0.35rem;
+          }
+        }
+        td.grey.required {
+          color: #767676;
+        }
+        td.grey:not(.required),
+        td.purple,
+        td.green {
+          font-family: 'IBM Plex Mono', monospace;
+          font-size: 0.8rem;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

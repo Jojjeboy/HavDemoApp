@@ -1,0 +1,14 @@
+<fa-icon [icon]="menuIcon" (click)="toggleSideMenu()"></fa-icon>
+<div class="header-content">
+  <div class="header-hav-logo"></div>
+  <div class="header-text-wrapper">
+    <h1 class="header-title">HaV</h1>
+    <h1 class="header-subtitle">Exempelprojekt</h1>
+  </div>
+  <p class="header-additional-text" *ngIf="latestVersion">
+    
+    <a href="https://www.npmjs.com/package/hav-components"
+      >Version 1.0.0</a
+    >
+  </p>
+</div>

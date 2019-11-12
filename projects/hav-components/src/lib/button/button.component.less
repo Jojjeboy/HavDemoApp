@@ -1,0 +1,104 @@
+@import '../../styles/hav-colors';
+
+@primary-bg-blue: #0c71b4;
+@primary-border-blue: #0859a0;
+@primary-hover-bg-blue: #0264a5;
+@primary-hover-border-blue: #04468b;
+@primary-disabled-bg-grey: #d4d4d4;
+@primary-disabled-border-grey: #9d9d9d;
+
+@secondary-shadow-grey: #cbcbcb;
+@secondary-hover-bg-grey: #efefef;
+@secondary-hover-shadow-grey: #bcbcbc;
+@secondary-disabled-shadow-grey: #ececec;
+@secondary-disabled-border-grey: #9c9c9c;
+@secondary-disabled-label-grey: #979797;
+
+:host {
+  display: inline-block;
+
+  button {
+    background-color: @primary-bg-blue;
+    border: 1px solid @primary-border-blue;
+    border-radius: 2px;
+    box-shadow: 0 -4px 0 0 inset @primary-border-blue;
+    color: white;
+    height: 46px;
+    font-family: inherit;
+    font-size: 16px;
+    letter-spacing: 1.6px;
+    outline: none;
+    padding: 0 24px;
+    transition: box-shadow, border-color, background-color 200ms;
+    width: inherit;
+
+    &.small {
+      font-size: 14px;
+      height: 30px;
+      padding: 0 14px;
+    }
+
+    &.large {
+      font-size: 20px;
+      height: 64px;
+      padding: 0 24px;
+    }
+
+    &.secondary {
+      background-color: white;
+      border: 1px solid black;
+      color: black;
+      box-shadow: 0 -4px 0 0 inset @secondary-shadow-grey;
+
+      &.disabled {
+        border: 1px solid @secondary-disabled-border-grey;
+        box-shadow: 0 -4px 0px 0px inset @secondary-disabled-shadow-grey;
+        color: @secondary-disabled-label-grey;
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+
+      &:not(.disabled) {
+        &:hover {
+          background-color: @secondary-hover-bg-grey;
+          box-shadow: 0 -4px 0 0 inset @secondary-hover-shadow-grey;
+          cursor: pointer;
+        }
+
+        &:active {
+          box-shadow: 0 4px 0 0 inset @secondary-shadow-grey;
+        }
+      }
+    }
+
+    &.primary {
+      &.disabled {
+        background-color: @primary-disabled-bg-grey;
+        border: 1px solid @primary-disabled-border-grey;
+        box-shadow: 0 -4px 0px 0px inset @primary-disabled-border-grey;
+        color: black;
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+
+      &:not(.disabled) {
+        &:hover {
+          background-color: @primary-hover-bg-blue;
+          border-color: @primary-hover-border-blue;
+          box-shadow: 0 -4px 0 0 inset @primary-hover-border-blue;
+          cursor: pointer;
+        }
+
+        &:active {
+          background-color: @primary-hover-bg-blue;
+          border-color: @primary-hover-border-blue;
+          box-shadow: 0 4px 0 0 inset @primary-hover-border-blue;
+        }
+      }
+    }
+  }
+}

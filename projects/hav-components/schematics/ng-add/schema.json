@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "hav-components-ng-add",
+  "title": "HaV Components ng-add schematic",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "animations": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether Angular browser animations should be set up.",
+      "x-prompt": "Set up browser animations for HaV Components?"
+    },
+    "favicon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the current favicon should be replaced by the HaV favicon.",
+      "x-prompt": "Replace the current favicon with the HaV favicon?"
+    },
+    "font": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the Roboto font should be added as default application font.",
+      "x-prompt": "Add the Roboto font to the application?"
+    }
+  },
+  "required": []
+}

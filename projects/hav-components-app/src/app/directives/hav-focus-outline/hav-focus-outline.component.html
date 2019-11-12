@@ -1,0 +1,38 @@
+<markdown>## FocusOutlineDirective</markdown>
+<div class="focus-outline-description">
+  <h3>Description</h3>
+  <p>
+    This directive is used to add an outline to the host element when it
+    receives focus, and to reset the outline to its previous value (or else
+    'none') when it loses focus. The host receives focus when the focusin event
+    fires, and loses focus when the focusout event fires.
+  </p>
+  <p>
+    FocusOutlineDirective is included in the component library as a utility to
+    facilitate focus indication in other applications, but it is also used
+    internally in the library. All hav-components that are interactable should
+    already be both keyboard accessible and use visual focus indicators (to
+    comply with WCAG standards). Some of them use this directive, some use other
+    visually similar techniques.
+  </p>
+</div>
+<app-documentation [api]="focusOutlineApi">
+  <app-documentation-example>
+    <p>
+      Tab through or click the examples to see the directive in action.
+    </p>
+    <div class="focus-outline-examples">
+      <div tabindex="0" havFocusOutline>Default</div>
+      <div tabindex="0" havFocusOutline outline="dashed 4px purple">
+        Custom focus outline
+      </div>
+      <div tabindex="0" havFocusOutline [outlineOffsetInsideElement]="true">
+        Outline offset inside host element.
+      </div>
+    </div>
+  </app-documentation-example>
+  <app-example-code-tabs
+    [tabs]="codeTabs"
+    [activeTab]="codeTabs[1]"
+  ></app-example-code-tabs>
+</app-documentation>

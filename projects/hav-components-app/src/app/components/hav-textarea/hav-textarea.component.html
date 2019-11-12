@@ -1,0 +1,16 @@
+<markdown>## Textarea</markdown>
+<app-documentation [api]="textareaApi">
+  <app-documentation-example>
+    <hav-textarea
+      label="Textarea"
+      [formControl]="textarea"
+      helperText="Du får skriva in högst 100 tecken."
+      [maxLength]="100"
+      [required]="true"
+    ></hav-textarea>
+  </app-documentation-example>
+  <app-example-code-tabs
+    [tabs]="codeTabs"
+    [activeTab]="codeTabs[2]"
+  ></app-example-code-tabs>
+</app-documentation>

@@ -1,0 +1,13 @@
+<button
+  [attr.aria-disabled]="disabled"
+  (click)="!disabled && onClick($event)"
+  (keydown.enter)="onEnterKeyDown($event)"
+  (keyup.enter)="onEnterKeyUp($event)"
+  [ngStyle]="style"
+  ngClass="{{ buttonType }} {{ buttonSize }} {{ disabled ? 'disabled' : '' }}"
+  havFocusOutline
+  [addFocusOutlineOnTabKeyboardEvent]="true"
+  [type]="isSubmitButton ? 'submit' : 'button'"
+>
+  <ng-content></ng-content>
+</button>

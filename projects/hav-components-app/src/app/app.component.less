@@ -1,0 +1,33 @@
+@import '../styles/constants';
+
+:host {
+  display: flex;
+
+  .content {
+    display: flex;
+    flex: 1;
+    margin-top: 4rem;
+
+    app-side-menu {
+      bottom: 0;
+      box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
+      overflow-x: hidden;
+      position: fixed;
+      top: @header-height;
+      width: 16rem;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding-bottom: 2rem;
+      margin-left: 16rem;
+
+      * > ::ng-deep:not(router-outlet) {
+        display: flex;
+        flex: 1;
+      }
+    }
+  }
+}

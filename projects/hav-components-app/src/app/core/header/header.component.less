@@ -1,0 +1,76 @@
+@import '../../../../../hav-components/src/styles/hav-colors';
+@import '../../../../../hav-components/src/styles/margins';
+@import '../../../styles/constants';
+
+:host {
+  align-items: center;
+  background-color: @hav-darkblue;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  color: @hav-map-white;
+  display: flex;
+  height: @header-height;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+
+  fa-icon {
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    height: @header-height;
+    justify-content: center;
+    width: @header-height;
+    transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      cursor: pointer;
+      background-color: lighten(@hav-darkblue, 5);
+    }
+  }
+
+  .header-content {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    .header-hav-logo {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url('../../../assets/hav-logotyp.png');
+      background-size: contain;
+      height: 3rem;
+      width: 6rem;
+      margin-right: 2rem;
+    }
+
+    .header-text-wrapper {
+      display: flex;
+      flex: 1 1 auto;
+
+      h1 {
+        font-size: 1.75em;
+
+        &.header-title {
+          font-weight: 300;
+          margin: 0 8px 0;
+        }
+
+        &.header-subtitle {
+          font-weight: 500;
+          margin: 0;
+        }
+      }
+    }
+
+    > p.header-additional-text {
+      padding-right: 1rem;
+      margin: 0;
+
+      a {
+        color: white;
+        font-weight: 500;
+        text-decoration-line: underline;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<div
+  class="checkbox-wrapper"
+  [class.isChecked]="checked"
+  [ngClass]="checkboxSize"
+  (click)="!disabled && onClick()"
+>
+  <div class="checkbox-container">
+    <input
+      [attr.aria-disabled]="disabled"
+      [attr.aria-label]="label"
+      [attr.aria-required]="requiredTrue"
+      (blur)="onTouched()"
+      [required]="requiredTrue"
+      type="checkbox"
+      [value]="value"
+    />
+    <span class="checkbox" [class.isChecked]="checked" [ngClass]="checkboxSize">
+      <svg
+        *ngIf="checked && checkmarkSVGData"
+        [attr.height]="checkmarkSVGData.size"
+        [attr.width]="checkmarkSVGData.size"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          [attr.x1]="checkmarkSVGData.firstLine.x1"
+          [attr.y1]="checkmarkSVGData.firstLine.y1"
+          [attr.x2]="checkmarkSVGData.firstLine.x2"
+          [attr.y2]="checkmarkSVGData.firstLine.y2"
+        ></line>
+        <line
+          [attr.x1]="checkmarkSVGData.scndLine.x1"
+          [attr.y1]="checkmarkSVGData.scndLine.y1"
+          [attr.x2]="checkmarkSVGData.scndLine.x2"
+          [attr.y2]="checkmarkSVGData.scndLine.y2"
+        ></line>
+      </svg>
+    </span>
+    <label *ngIf="!hideLabel" [attr.for]="label">{{ label }}</label>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+```html
+<hav-button (click)="toggleExpandAll()" [style]="{ width: '180px' }">
+  {{ allIsExpanded ? 'Minimera alla' : 'Expandera alla' }}
+</hav-button>
+<hav-accordion>
+  <hav-accordion-panel>
+    <hav-accordion-panel-header>
+      Panel som expanderas när den klickas på
+    </hav-accordion-panel-header>
+    <hav-accordion-panel-content>
+      <div class="panel-1-content">
+        Expanderbart innehåll
+      </div>
+    </hav-accordion-panel-content>
+  </hav-accordion-panel>
+  <hav-accordion-panel [iconAsToggleTrigger]="true">
+    <hav-accordion-panel-header>
+      Panel som expanderas när toggle-ikonen klickas på
+    </hav-accordion-panel-header>
+    <hav-accordion-panel-content>
+      <div class="panel-2-content">
+        Annat expanderbart innehåll
+        <div class="icons">
+          <fa-icon [icon]="kiwiBirdIcon"></fa-icon>
+          <fa-icon [icon]="skullIcon"></fa-icon>
+          <fa-icon [icon]="anchorIcon"></fa-icon>
+          <fa-icon [icon]="bugIcon"></fa-icon>
+        </div>
+      </div>
+    </hav-accordion-panel-content>
+  </hav-accordion-panel>
+</hav-accordion>
+```

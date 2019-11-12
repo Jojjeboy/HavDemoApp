@@ -1,0 +1,65 @@
+<h2>Reactive Forms och validering</h2>
+<div class="forms-validation-content">
+  <markdown [src]="'assets/forms/reactive-forms.md'"></markdown>
+  <h4>Testa gärna exemplen nedan för att se hur valideringen går till.</h4>
+  <app-documentation>
+    <app-documentation-example>
+      <form [formGroup]="formGroup">
+        <div class="form-field-example">
+          <p>
+            Required form field of type 'email':
+          </p>
+          <hav-form-field
+            formControlName="requiredEmail"
+            label="Email"
+            type="email"
+          ></hav-form-field>
+          <p
+            [style.color]="
+              formGroup.get('requiredEmail').valid ? 'green' : 'red'
+            "
+          >
+            Currently failing validator: {{ getErrors('requiredEmail') }}
+          </p>
+        </div>
+        <div class="form-field-example">
+          <p>
+            Required field with Validator.minLength(2), Validator.maxLength(4):
+          </p>
+          <hav-form-field
+            formControlName="requiredMinMaxLength"
+            label="Required text"
+            helperText="Must have at least 2 characters and at most 4 characters"
+          ></hav-form-field>
+          <p
+            [style.color]="
+              formGroup.get('requiredMinMaxLength').valid ? 'green' : 'red'
+            "
+          >
+            Currently failing validator:
+            {{ getErrors('requiredMinMaxLength') }}
+          </p>
+        </div>
+        <div class="form-field-example">
+          <p>
+            Form field of type number with Validator.min(3), Validator.max(7):
+          </p>
+          <hav-form-field
+            formControlName="minMax"
+            label="Number"
+            type="number"
+            helperText="The input value must be at least 3 and at most 7."
+          ></hav-form-field>
+          <p [style.color]="formGroup.get('minMax').valid ? 'green' : 'red'">
+            Currently failing validator:
+            {{ getErrors('minMax') }}
+          </p>
+        </div>
+      </form>
+    </app-documentation-example>
+    <app-example-code-tabs
+      [tabs]="codeTabs"
+      [activeTab]="codeTabs[1]"
+    ></app-example-code-tabs>
+  </app-documentation>
+</div>

@@ -1,0 +1,51 @@
+<label [class.disabled]="disabled" [attr.for]="label">
+  <span *ngIf="!hideLabel">
+    {{ label }}
+  </span>
+  <span class="form-field-helper-text" *ngIf="helperText !== undefined">{{
+    helperText
+  }}</span>
+</label>
+<div
+  class="input-container"
+  [class.postalCode]="type === 'postalCode'"
+  [class.required]="required"
+  havFocusOutline
+  [ngClass]="readOnly ? 'read-only' : disabled ? 'disabled' : ''"
+>
+  <input
+    [autocomplete]="autocomplete"
+    [id]="label"
+    [readOnly]="readOnly"
+    [disabled]="disabled"
+    (blur)="onTouched()"
+    [attr.aria-disabled]="disabled"
+    [attr.aria-label]="label"
+    (input)="!disabled && onInput($event.target.value)"
+    [name]="label"
+    [maxLength]="maxLength"
+    [minLength]="minLength"
+    [attr.aria-required]="required"
+    [attr.aria-invalid]="control && control.invalid"
+    attr.aria-describedby="{{ control && !control.valid && label + '_error' }}"
+    [type]="type === 'postalCode' ? 'text' : type"
+    [required]="required"
+    [value]="value || (control && control.value) || ''"
+  />
+</div>
+<span
+  id="{{ label }}_error"
+  class="error-container"
+  *ngIf="
+    control &&
+    (required ? control.touched : control.touched && control.dirty) &&
+    !control.valid
+  "
+>
+  <span *ngIf="validationErrorMessage && !customValidationErrorMessage">
+    {{ validationErrorMessage }}
+  </span>
+  <span *ngIf="customValidationErrorMessage">
+    {{ customValidationErrorMessage }}
+  </span>
+</span>

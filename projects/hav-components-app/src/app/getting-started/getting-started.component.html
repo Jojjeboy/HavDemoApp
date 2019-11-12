@@ -1,0 +1,24 @@
+<markdown>## Exempel</markdown>
+<div class="getting-started-view">
+  <div class="getting-started-installing">
+
+    <form [formGroup]="formGroup">
+      <p>
+        <hav-form-field [required]="true" formControlName="firstname" label="Förnamn"></hav-form-field>
+      </p><br />
+      <p>
+        <hav-form-field [required]="true" formControlName="lastname" label="Efternamn"></hav-form-field>
+      </p><br />
+      <p>
+        <hav-textarea label="Beskriv dig själv" [formControl]="textarea" helperText="Du får skriva in högst 100 tecken." [maxLength]="100" [required]="true"></hav-textarea>
+      </p><br />
+
+      <hav-button (click)="onClick('Primary button was clicked')">
+        Skicka
+      </hav-button>
+
+
+    </form>
+
+  </div>
+</div>

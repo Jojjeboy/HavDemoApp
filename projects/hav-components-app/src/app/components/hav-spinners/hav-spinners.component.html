@@ -1,0 +1,32 @@
+<markdown>## Spinners</markdown>
+<app-documentation [api]="spinnerApi">
+  <app-documentation-example>
+    <hav-button (click)="toggleAnimationPause()" [style]="{ width: '12rem' }">
+      {{ animationIsPaused ? 'Start spinning' : 'Stop spinning' }}
+    </hav-button>
+    <div class="spinners">
+      <div class="spinner-container">
+        <hav-spinner
+          spinnerSize="small"
+          [pauseAnimation]="animationIsPaused"
+        ></hav-spinner>
+        <h4>Small</h4>
+      </div>
+      <div class="spinner-container">
+        <hav-spinner [pauseAnimation]="animationIsPaused"></hav-spinner>
+        <h4>Medium (default)</h4>
+      </div>
+      <div class="spinner-container">
+        <hav-spinner
+          spinnerSize="large"
+          [pauseAnimation]="animationIsPaused"
+        ></hav-spinner>
+        <h4>Large</h4>
+      </div>
+    </div>
+  </app-documentation-example>
+  <app-example-code-tabs
+    [tabs]="codeTabs"
+    [activeTab]="codeTabs[2]"
+  ></app-example-code-tabs>
+</app-documentation>

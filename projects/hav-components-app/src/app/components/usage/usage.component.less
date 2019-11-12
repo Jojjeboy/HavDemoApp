@@ -1,0 +1,50 @@
+:host {
+  p {
+    padding: 1rem;
+  }
+
+  .usage-view {
+    padding: 0 2rem;
+    .usage-example {
+      display: flex;
+      flex-direction: column;
+      max-width: 48rem;
+
+      .tabs {
+        display: flex;
+
+        a {
+          align-items: center;
+          border-bottom: 1px solid #c2c9cc;
+          border-top: 1px solid lighten(#c2c9cc, 18);
+          box-sizing: border-box;
+          color: #8c96a0;
+          display: flex;
+          flex: 1 0 10rem;
+          height: 3rem;
+          justify-content: center;
+          transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+            color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+            border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+          > * {
+            margin-bottom: 2px;
+          }
+
+          &.active {
+            color: black;
+            border-bottom: 3px solid #089fd7;
+            > * {
+              margin-bottom: 0;
+            }
+          }
+
+          &:hover {
+            background-color: #c8effe;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

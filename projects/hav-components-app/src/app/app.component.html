@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="content">
+  <app-side-menu *ngIf="sideMenuIsOpen" @openCloseMenu></app-side-menu>
+  <div
+    class="main-content"
+    [@animateMargin]="sideMenuIsOpen ? 'menuOpen' : 'menuClosed'"
+  >
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<!--
+  <div class="hav-radio-buttons-container" value="small">
+    <h2>Radiobuttons</h2>
+  <hav-radio-button
+    label="Small"
+    radioButtonSize="small"
+    value="small"
+    name="radio-buttons"
+  ></hav-radio-button>
+  <hav-radio-button
+    label="Medium"
+    value="medium"
+    name="radio-buttons"
+  ></hav-radio-button>
+  <hav-radio-button
+  label="Large"
+  radioButtonSize="large"
+  value="large"
+  name="radio-buttons"
+  ></hav-radio-button>
+  <hav-radio-button
+  label="Inaktiverad"
+  [disabled]="true"
+  [checked]="true"
+  value="inaktiv"
+  name="radio-buttons"
+  ></hav-radio-button>
+</div>
+-->

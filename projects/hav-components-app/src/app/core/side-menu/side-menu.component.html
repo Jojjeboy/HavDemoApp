@@ -1,0 +1,46 @@
+<ng-container *ngFor="let group of menuGroups">
+  <div
+    class="menu-item-group-accordion-header"
+    [class.expanded]="group.isExpanded && group.subMenuItems.length > 0"
+    [class.active]="currentUrl.includes(group.url)"
+  >
+    <a
+      *ngIf="group.defaultFragmentUrl"
+      [routerLink]="group.url"
+      [fragment]="group.defaultFragmentUrl"
+      (click)="toggleExpand(group, true)"
+      >{{ group.name }}</a
+    >
+    <a
+      *ngIf="!group.hasAnchors && !group.defaultFragmentUrl"
+      [routerLink]="
+        group.url +
+        '/' +
+        (group.subMenuItems.length > 0 ? group.subMenuItems[0].url : '')
+      "
+      (click)="toggleExpand(group, true)"
+      >{{ group.name }}</a
+    >
+    <a
+      *ngIf="group.hasAnchors && !group.defaultFragmentUrl"
+      [routerLink]="group.url"
+      (click)="toggleExpand(group, true)"
+      >{{ group.name }}</a
+    >
+    <span
+      class="icon-container"
+      (click)="toggleExpand(group)"
+      *ngIf="group.subMenuItems.length > 0"
+    >
+      <fa-icon [icon]="expandIcon"></fa-icon>
+    </span>
+  </div>
+  <div *ngIf="group.isExpanded" class="sub-menu-items">
+    <a
+      *ngFor="let item of group.subMenuItems"
+      (click)="onSubItemClick(group.url, item)"
+      [class.active]="currentUrl.includes(item.url)"
+      >{{ item.name }}</a
+    >
+  </div>
+</ng-container>

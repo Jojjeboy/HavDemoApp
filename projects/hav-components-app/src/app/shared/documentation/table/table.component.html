@@ -1,0 +1,22 @@
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let headerName of headerNames">{{ headerName }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tableRow of tableRows">
+      <td
+        *ngFor="let colData of tableRow.columns; let i = index"
+        [class.green]="i === 0"
+        [class.purple]="i === 1"
+        [class.grey]="i === 2 && !!colData"
+        [class.required]="colData === 'required'"
+      >
+        <span>
+          {{ colData }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

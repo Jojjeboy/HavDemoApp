@@ -1,0 +1,88 @@
+@import '../../styles/hav-colors';
+@import '../../styles/font-sizes';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  font-size: @label-font-size;
+  width: 384px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+
+    > * {
+      margin-bottom: 4px;
+    }
+
+    &.disabled {
+      color: #b1b1b1;
+    }
+  }
+
+  .textarea-helper-text {
+    color: #979797;
+    margin-bottom: 4px;
+  }
+
+  .textarea-input-container {
+    align-items: center;
+    border: 1px solid black;
+    display: flex;
+    position: relative;
+    transition: border-color, box-shadow ease-in-out 0.15s;
+
+    &.disabled,
+    &.read-only {
+      border-color: #dddddd;
+    }
+
+    textarea {
+      border: none;
+      flex: 1 0 auto;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      outline: none;
+      padding: 8px;
+      resize: none;
+
+      &:disabled,
+      &:read-only {
+        background-color: #ffffff;
+      }
+    }
+  }
+
+  .textarea-validation-info-container {
+    display: flex;
+    margin: 8px 0 0;
+
+    .textarea-characters-left {
+      display: flex;
+      flex: 1 0 auto;
+      justify-content: flex-end;
+      padding-left: 16px;
+
+      &.disabled {
+        color: #b1b1b1;
+      }
+    }
+
+    .textarea-error-container {
+      color: @red;
+      font-style: italic;
+    }
+  }
+
+  &.ng-touched.ng-invalid {
+    .textarea-input-container.required {
+      border: 1px solid @red;
+    }
+  }
+
+  &.ng-dirty.ng-touched.ng-invalid {
+    .textarea-input-container {
+      border: 1px solid @red;
+    }
+  }
+}
